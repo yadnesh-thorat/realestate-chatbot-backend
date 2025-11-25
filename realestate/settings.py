@@ -12,14 +12,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # 🔐 SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-_lvzgb#^$!hbcqyv8on$lua$$%1h($uugz_1!v1_wr3s0$d)1)')
 
-# ⚙️ Debug Mode (Set False in live render if possible)
+# ⚙️ Debug Mode (True for development, False in production)
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-# 🌍 Allowed hosts ✔ (No http/https prefix allowed)
+# 🌍 Allowed hosts (NO http:// or https:// here)
 ALLOWED_HOSTS = [
     "realestate-chatbot-backend-czom.onrender.com",  # Backend (Render)
+    "realestate-chatbot-frontend.vercel.app",        # Frontend (Vercel)
     "localhost",
-    "127.0.0.1"
+    "127.0.0.1",
 ]
 
 # ✔ Installed apps
@@ -35,14 +36,14 @@ INSTALLED_APPS = [
     'api',
 ]
 
-# 🌎 CORS settings → allow your frontend (Vercel)
+# 🌎 CORS settings (allows frontend to access backend)
 CORS_ALLOWED_ORIGINS = [
-    "https://realestate-chatbot-frontend.vercel.app",  # Frontend live
-    "http://localhost:5173"  # React local dev
+    "https://realestate-chatbot-frontend.vercel.app",  # Live frontend
+    "http://localhost:5173",  # Local dev frontend
 ]
 
-# ❗ Temporary (optional) — remove once working
-# CORS_ALLOW_ALL_ORIGINS = True  
+# 🛑 Temporary override to allow all origins (remove after testing)
+CORS_ALLOW_ALL_ORIGINS = True
 
 # 🧵 Middleware
 MIDDLEWARE = [
@@ -56,6 +57,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# URL Configuration
 ROOT_URLCONF = 'realestate.urls'
 
 # 🎨 Templates
@@ -77,7 +79,7 @@ TEMPLATES = [
 # 🔥 WSGI Entry
 WSGI_APPLICATION = 'realestate.wsgi.application'
 
-# 🗃 SQLite DB
+# 🗃 Database (SQLite)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -93,7 +95,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# 🌐 Language & Time
+# 🌐 Language & Timezone
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
@@ -101,7 +103,7 @@ USE_TZ = True
 
 # 📦 Static files
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / "staticfiles"  # For deployment
+STATIC_ROOT = BASE_DIR / "staticfiles"  # Required for Render Deployment
 
-# 🔢 Default Field
+# 🔢 Default Field Type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
