@@ -1,9 +1,9 @@
-fastapi
-uvicorn
+django
+djangorestframework
+django-cors-headers
+gunicorn
+
 pandas
 numpy
-matplotlib
-scikit-learn
 openpyxl
-python-multipart
-gunicorn
+
