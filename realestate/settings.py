@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-_lvzgb#^$!hbcqyv8on$lua$$%1h($uugz_1!v1_wr3s0$d)1)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'realestate-chatbot-backend-czom.onrender.com'
+]
 
 
 # Application definition
