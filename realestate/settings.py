@@ -26,9 +26,8 @@ SECRET_KEY = 'django-insecure-_lvzgb#^$!hbcqyv8on$lua$$%1h($uugz_1!v1_wr3s0$d)1)
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    'realestate-chatbot-backend-czom.onrender.com'
+    "http://localhost:5173",
+    "https://realestate-chatbot-frontend.vercel.app"
 ]
 
 
